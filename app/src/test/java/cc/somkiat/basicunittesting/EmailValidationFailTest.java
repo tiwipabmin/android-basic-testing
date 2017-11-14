@@ -28,4 +28,13 @@ public class EmailValidationFailTest {
         assertFalse(emailValidation.isResult());
         assertEquals("Email is null", emailValidation.getErrorMessage());
     }
+
+    @Test
+    public void emailInvalidPattern() {
+        EmailValidation emailValidation = new EmailValidation();
+        emailValidation.emailValidationPattern("tiwipabmin!@gmail.com");
+
+        assertFalse(emailValidation.isResult());
+        assertEquals("Email invalid pattern", emailValidation.getErrorMessage());
+    }
 }

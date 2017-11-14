@@ -1,8 +1,8 @@
 package cc.somkiat.basicunittesting;
 
-/**
- * Created by tiwip on 11/15/2017.
- */
+import android.text.TextUtils;
+import android.util.Patterns;
+
 
 public class EmailValidation {
 
@@ -28,6 +28,13 @@ public class EmailValidation {
         if (email == null) {
             result = false;
             errorMessage = "Email is null";
+        }
+    }
+
+    public void emailValidationPattern(String email) {
+        if (!email.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")) {
+            result = false;
+            errorMessage = "Email invalid pattern";
         }
     }
 }
