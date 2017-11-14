@@ -32,7 +32,7 @@ public class EmailValidationFailTest {
     @Test
     public void emailInvalidPattern() {
         EmailValidation emailValidation = new EmailValidation();
-        emailValidation.emailValidationPattern("tiwipabmin!@gmail.com");
+        emailValidation.emailValidationInvalidPattern("tiwipabmin!@gmail.com");
 
         assertFalse(emailValidation.isResult());
         assertEquals("Email invalid pattern", emailValidation.getErrorMessage());

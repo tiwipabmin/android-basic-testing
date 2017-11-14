@@ -31,10 +31,17 @@ public class EmailValidation {
         }
     }
 
-    public void emailValidationPattern(String email) {
+    public void emailValidationInvalidPattern(String email) {
         if (!email.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")) {
             result = false;
             errorMessage = "Email invalid pattern";
+        }
+    }
+
+    public void emailValidationValidPattern(String email) {
+        if (email.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$") && !email.isEmpty()) {
+            result = true;
+            errorMessage = "Email valid pattern";
         }
     }
 }
