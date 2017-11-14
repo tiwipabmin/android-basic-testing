@@ -19,4 +19,13 @@ public class EmailValidationFailTest {
         assertFalse(emailValidation.isResult());
         assertEquals("Email is empty", emailValidation.getErrorMessage());
     }
+
+    @Test
+    public void emailIsNull() {
+        EmailValidation emailValidation = new EmailValidation();
+        emailValidation.emailValidationIsNull(null);
+
+        assertFalse(emailValidation.isResult());
+        assertEquals("Email is null", emailValidation.getErrorMessage());
+    }
 }

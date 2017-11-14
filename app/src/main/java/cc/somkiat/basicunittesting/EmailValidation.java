@@ -9,8 +9,8 @@ public class EmailValidation {
     private boolean result;
     private String errorMessage;
 
-    public void emailValidationIsEmpty(String name) {
-        if (name.isEmpty()) {
+    public void emailValidationIsEmpty(String email) {
+        if (email.isEmpty()) {
             result = false;
             errorMessage = "Email is empty";
         }
@@ -22,5 +22,12 @@ public class EmailValidation {
 
     public String getErrorMessage() {
         return errorMessage;
+    }
+
+    public void emailValidationIsNull(String email) {
+        if (email == null) {
+            result = false;
+            errorMessage = "Email is null";
+        }
     }
 }
