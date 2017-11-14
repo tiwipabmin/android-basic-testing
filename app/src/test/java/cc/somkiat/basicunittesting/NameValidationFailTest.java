@@ -37,4 +37,13 @@ public class NameValidationFailTest {
         assertFalse(nameValidation.isResult());
         assertEquals("Name is numeric", nameValidation.getErrorMessage());
     }
+
+    @Test
+    public void nameContainSpecialAlphabetOrOther(){
+        NameValidation nameValidation = new NameValidation();
+        nameValidation.nameValidationContainSpecialAlphabetOrOther("Millimeter!@#@#$#@$56498");
+
+        assertFalse(nameValidation.isResult());
+        assertEquals("Name contain special alphabet or other", nameValidation.getErrorMessage());
+    }
 }

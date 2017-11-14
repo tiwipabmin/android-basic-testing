@@ -36,9 +36,16 @@ class NameValidation {
     }
 
     public void nameValidationIsNumeric(String name){
-        if(name.matches("[0-9]+")){
+        if(name.matches("^[0-9]+")){
             result = false;
             errorMessage = "Name is numeric";
+        }
+    }
+
+    public void nameValidationContainSpecialAlphabetOrOther(String name){
+        if(!name.matches("^[A-Za-z]+$")){
+            result = false;
+            errorMessage = "Name contain special alphabet or other";
         }
     }
 }
