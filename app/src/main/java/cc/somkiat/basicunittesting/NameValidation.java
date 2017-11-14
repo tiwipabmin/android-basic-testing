@@ -23,4 +23,11 @@ class NameValidation {
     public boolean isResult() {
         return result;
     }
+
+    public void nameValidationIsNull(String name){
+        if(name == null){
+            result = false;
+            errorMessage = "Name is null";
+        }
+    }
 }
