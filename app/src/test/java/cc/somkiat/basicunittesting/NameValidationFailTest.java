@@ -28,4 +28,13 @@ public class NameValidationFailTest {
         assertFalse(nameValidation.isResult());
         assertEquals("Name is null", nameValidation.getErrorMessage());
     }
+
+    @Test
+    public void nameIsNumeric(){
+        NameValidation nameValidation = new NameValidation();
+        nameValidation.nameValidationIsNumeric("126");
+
+        assertFalse(nameValidation.isResult());
+        assertEquals("Name is numeric", nameValidation.getErrorMessage());
+    }
 }

@@ -1,5 +1,9 @@
 package cc.somkiat.basicunittesting;
 
+import android.text.TextUtils;
+
+import java.util.regex.Pattern;
+
 /**
  * Created by tiwip on 11/14/2017.
  */
@@ -28,6 +32,13 @@ class NameValidation {
         if(name == null){
             result = false;
             errorMessage = "Name is null";
+        }
+    }
+
+    public void nameValidationIsNumeric(String name){
+        if(name.matches("[0-9]+")){
+            result = false;
+            errorMessage = "Name is numeric";
         }
     }
 }
