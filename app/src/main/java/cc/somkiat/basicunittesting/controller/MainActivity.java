@@ -10,57 +10,59 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import cc.somkiat.basicunittesting.R;
-import cc.somkiat.basicunittesting.validation.FactoryValidation;
+import cc.somkiat.basicunittesting.validation.factory.FactoryEmailValidation;
+import cc.somkiat.basicunittesting.validation.factory.FactoryNameValidation;
+import cc.somkiat.basicunittesting.validation.factory.FactoryValidation;
 import cc.somkiat.basicunittesting.validation.Validation;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity {
 
-    private Button btn_save;
-    private EditText et_email;
+    private EditText et_email, et_username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        bindWidget();
-        setEvent();
-    }
-
-    private void bindWidget(){
-
-        btn_save = findViewById(R.id.saveButton);
-
         et_email = findViewById(R.id.emailInput);
-    }
-
-    private void setEvent(){
-
-        btn_save.setOnClickListener(this);
+        et_username = findViewById(R.id.userNameInput);
     }
 
     public void onSaveClick(View view) {
 
-        FactoryValidation factoryValidation = new FactoryValidation();
-        ArrayList<Validation> factory = factoryValidation.getFactory();
+        boolean saveSuccess = true;
+
+        FactoryEmailValidation factoryEmailValidation = new FactoryEmailValidation();
+        ArrayList<Validation> factory = factoryEmailValidation.getFactory();
 
         for (Validation validation : factory){
             validation.validation(et_email.getText().toString());
             if(!validation.isResult()){
+                saveSuccess = false;
                 Toast.makeText(this, "Error : " + validation.getErrorMessage(), Toast.LENGTH_SHORT).show();
                 break;
             }
         }
 
+        FactoryNameValidation factoryNameValidation = new FactoryNameValidation();
+        factory = factoryNameValidation.getFactory();
+
+        for (Validation validation : factory){
+            validation.validation(et_username.getText().toString());
+            if(!validation.isResult()){
+                saveSuccess = false;
+                Toast.makeText(this, "Error : " + validation.getErrorMessage(), Toast.LENGTH_SHORT).show();
+                break;
+            }
+        }
+
+        if(saveSuccess){
+            Toast.makeText(this, "Error : " + "Save successful.", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     public void onRevertClick(View view) {
-        //TODO
-    }
-
-    @Override
-    public void onClick(View v) {
-        if(v.getId() == R.id.saveButton){
-            onSaveClick(et_email);
-        }
+        et_email.setText("");
+        et_username.setText("");
     }
 }
