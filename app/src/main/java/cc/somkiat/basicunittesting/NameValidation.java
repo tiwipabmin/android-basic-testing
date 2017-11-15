@@ -55,4 +55,11 @@ class NameValidation {
             errorMessage = "Name is lowercase letter";
         }
     }
+
+    public void nameValidationIsUppercaseLetter(String name) {
+        if(name.matches("^[A-Z]+$")){
+            result = true;
+            errorMessage = "Name is uppercase letter";
+        }
+    }
 }

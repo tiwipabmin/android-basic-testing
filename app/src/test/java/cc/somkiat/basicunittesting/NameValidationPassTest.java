@@ -13,11 +13,20 @@ import static org.junit.Assert.assertTrue;
 public class NameValidationPassTest {
 
     @Test
-    public void nameIsEmpty() {
+    public void nameIsLowercaseLetter() {
         NameValidation nameValidation = new NameValidation();
         nameValidation.nameValidationIsLowercaseLetter("millimeter");
 
         assertTrue(nameValidation.isResult());
         assertEquals("Name is lowercase letter", nameValidation.getErrorMessage());
+    }
+
+    @Test
+    public void nameIsUppercaseLetter() {
+        NameValidation nameValidation = new NameValidation();
+        nameValidation.nameValidationIsUppercaseLetter("MILLIMETER");
+
+        assertTrue(nameValidation.isResult());
+        assertEquals("Name is uppercase letter", nameValidation.getErrorMessage());
     }
 }
