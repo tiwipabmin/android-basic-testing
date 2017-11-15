@@ -29,4 +29,13 @@ public class NameValidationPassTest {
         assertTrue(nameValidation.isResult());
         assertEquals("Name is uppercase letter", nameValidation.getErrorMessage());
     }
+
+    @Test
+    public void nameIsAlphabet() {
+        NameValidation nameValidation = new NameValidation();
+        nameValidation.nameValidationIsAlphabet("Millimeter");
+
+        assertTrue(nameValidation.isResult());
+        assertEquals("Name is alphabet", nameValidation.getErrorMessage());
+    }
 }
