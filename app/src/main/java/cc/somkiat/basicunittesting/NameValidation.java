@@ -13,6 +13,8 @@ class NameValidation {
     private boolean result;
     private String errorMessage;
 
+    public void validate(String name){}
+
     public void nameValidationIsEmpty(String name) {
         if (name.isEmpty()) {
             result = false;
