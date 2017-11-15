@@ -48,4 +48,11 @@ class NameValidation {
             errorMessage = "Name contain special alphabet or other";
         }
     }
+
+    public void nameValidationIsLowercaseLetter(String name) {
+        if(name.matches("^[a-z]+$")){
+            result = true;
+            errorMessage = "Name is lowercase letter";
+        }
+    }
 }
