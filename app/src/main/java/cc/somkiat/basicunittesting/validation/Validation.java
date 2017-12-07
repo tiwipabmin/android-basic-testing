@@ -1,9 +1,5 @@
 package cc.somkiat.basicunittesting.validation;
 
-/**
- * Created by tiwip on 11/15/2017.
- */
-
 public abstract class Validation {
 
     private String errorMessage;

@@ -11,10 +11,6 @@ import cc.somkiat.basicunittesting.validation.nameValidation.NameIsNumeric;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
-/**
- * Created by tiwip on 11/14/2017.
- */
-
 public class NameValidationFailTest {
 
     @Test

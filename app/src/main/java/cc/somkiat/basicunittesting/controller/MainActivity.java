@@ -3,7 +3,6 @@ package cc.somkiat.basicunittesting.controller;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -12,7 +11,6 @@ import java.util.ArrayList;
 import cc.somkiat.basicunittesting.R;
 import cc.somkiat.basicunittesting.validation.factory.FactoryEmailValidation;
 import cc.somkiat.basicunittesting.validation.factory.FactoryNameValidation;
-import cc.somkiat.basicunittesting.validation.factory.FactoryValidation;
 import cc.somkiat.basicunittesting.validation.Validation;
 
 public class MainActivity extends AppCompatActivity {
@@ -38,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
             validation.validation(et_email.getText().toString());
             if(!validation.isResult()){
                 saveSuccess = false;
-                Toast.makeText(this, "Error : " + validation.getErrorMessage(), Toast.LENGTH_SHORT).show();
                 break;
             }
         }
@@ -50,13 +47,14 @@ public class MainActivity extends AppCompatActivity {
             validation.validation(et_username.getText().toString());
             if(!validation.isResult()){
                 saveSuccess = false;
-                Toast.makeText(this, "Error : " + validation.getErrorMessage(), Toast.LENGTH_SHORT).show();
                 break;
             }
         }
 
         if(saveSuccess){
-            Toast.makeText(this, "Error : " + "Save successful.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Save successful.", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Name or email invalid.", Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -66,3 +64,4 @@ public class MainActivity extends AppCompatActivity {
         et_username.setText("");
     }
 }
+
